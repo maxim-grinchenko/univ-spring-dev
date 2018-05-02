@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property resource="application.properties"/>
+    <timestamp key="byTimestamp" datePattern="yyyy-MM-dd_HH_mm_ss"/>
+
+    <Appenders>
+        <File name="fileLog" fileName="./service.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level - %msg%n"/>
+        </File>
+
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level - %msg%n"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <logger name="our.courses.brovary" level="INFO" additivity="false">
+            <AppenderRef ref="fileLog"/>
+            <AppenderRef ref="STDOUT"/>
+        </logger>
+
+        <Root level="INFO">
+            <AppenderRef ref="fileLog"/>
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+    </Loggers>
+</configuration>
